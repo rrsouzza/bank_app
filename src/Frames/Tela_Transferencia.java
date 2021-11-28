@@ -212,6 +212,10 @@ public class Tela_Transferencia extends javax.swing.JFrame {
                 this.Label_ValorTransferenciaErro.setText("Insira o valor da transferência!");
                 this.Label_ValorTransferenciaErro.setVisible(true);
             }
+            if (Double.parseDouble(this.Input_ValorTransferencia.getText()) < 0){
+                this.Label_ValorTransferenciaErro.setText("Apenas valores positivos são aceitos!");
+                this.Label_ValorTransferenciaErro.setVisible(true);
+            }
             if ((!this.Input_NumContaOrigem.getText().isEmpty()) && (!this.Input_NumContaDestino.getText().isEmpty()) && (!this.Input_ValorTransferencia.getText().isEmpty())){
                 numContaOrigem = Integer.parseInt(this.Input_NumContaOrigem.getText());
                 numContaDestino = Integer.parseInt(this.Input_NumContaDestino.getText());

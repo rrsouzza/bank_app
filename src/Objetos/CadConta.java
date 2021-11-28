@@ -22,6 +22,15 @@ public class CadConta {
         this.listaContas.add(novaConta);
         return true;
     }
+    public boolean CadastrarContaEspecial(ContaEspecial novaContaEspecial){
+        for (int i=0; i<listaContas.size(); i++){
+            if (novaContaEspecial.getNumeroConta() == listaContas.get(i).getNumeroConta()){
+                return false;
+            }
+        }
+        this.listaContas.add(novaContaEspecial);
+        return true;
+    }
     
     public void Salvar(String diretorio) throws IOException {
         try{            
@@ -83,7 +92,11 @@ public class CadConta {
             linha = this.entrada.nextLine();
             try{
                 vetorLinha = linha.split(";");  //Divide as informações usando o ; como parâmetro
-                registros.add(new Conta(Integer.parseInt(vetorLinha[0]), vetorLinha[1], Double.parseDouble(vetorLinha[2])));
+                if (vetorLinha.length > 3){
+                    registros.add(new ContaEspecial(Integer.parseInt(vetorLinha[0]), vetorLinha[1], Double.parseDouble(vetorLinha[2]), Double.parseDouble(vetorLinha[3]), Double.parseDouble(vetorLinha[4])));
+                }else{
+                    registros.add(new Conta(Integer.parseInt(vetorLinha[0]), vetorLinha[1], Double.parseDouble(vetorLinha[2])));
+                }
             }
             catch(ArrayIndexOutOfBoundsException erro){
                 throw new ArrayIndexOutOfBoundsException("REGISTRO TEM " +vetorLinha.length+ " INFORMAÇÕES.");                

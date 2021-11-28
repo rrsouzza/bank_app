@@ -5,6 +5,7 @@
 package Frames;
 import Objetos.CadConta;
 import Objetos.Conta;
+import Objetos.ContaEspecial;
 import java.io.IOException;
 /**
  *
@@ -22,6 +23,7 @@ public class Tela_Cadastro extends javax.swing.JFrame {
         this.Label_NumContaErro.setVisible(false);
         this.Label_NomeClienteErro.setVisible(false);
         this.Label_CadastroSucesso.setVisible(false);
+        this.Label_RadioButtonErro.setVisible(false);
     }
 
     /**
@@ -33,6 +35,7 @@ public class Tela_Cadastro extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        RadioButtonGroup_TipoConta = new javax.swing.ButtonGroup();
         Label_Titulo = new javax.swing.JLabel();
         Label_NumConta = new javax.swing.JLabel();
         Input_NumConta = new javax.swing.JTextField();
@@ -43,6 +46,9 @@ public class Tela_Cadastro extends javax.swing.JFrame {
         Button_Salvar = new javax.swing.JButton();
         Button_RetornarMenuPrincipal = new javax.swing.JButton();
         Label_CadastroSucesso = new javax.swing.JLabel();
+        RadioButton_ContaNormal = new javax.swing.JRadioButton();
+        RadioButton_ContaEspecial = new javax.swing.JRadioButton();
+        Label_RadioButtonErro = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -79,66 +85,96 @@ public class Tela_Cadastro extends javax.swing.JFrame {
             }
         });
 
+        RadioButtonGroup_TipoConta.add(RadioButton_ContaNormal);
+        RadioButton_ContaNormal.setText("Conta Normal");
+
+        RadioButtonGroup_TipoConta.add(RadioButton_ContaEspecial);
+        RadioButton_ContaEspecial.setText("Conta Especial");
+
+        Label_RadioButtonErro.setForeground(java.awt.Color.red);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(31, 31, 31)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(Button_Salvar)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(Label_CadastroSucesso, javax.swing.GroupLayout.PREFERRED_SIZE, 297, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(Button_RetornarMenuPrincipal)))
+                .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(Label_NumConta)
+                    .addComponent(Label_NomeCliente))
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(31, 31, 31)
+                        .addComponent(Input_NumConta, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(34, 34, 34)
+                        .addComponent(Label_NumContaErro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(60, 60, 60))
+                    .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(Label_CadastroSucesso, javax.swing.GroupLayout.PREFERRED_SIZE, 297, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(Button_RetornarMenuPrincipal))
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(Label_NumConta)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(Input_NumConta, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(Label_NumContaErro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(Button_Salvar)
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addComponent(Label_NomeCliente)
-                                            .addGap(27, 27, 27)
-                                            .addComponent(Input_NomeCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                            .addComponent(Label_NomeClienteErro, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addGap(0, 10, Short.MAX_VALUE)))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(193, 193, 193)
-                        .addComponent(Label_Titulo)))
-                .addContainerGap())
+                                .addComponent(Input_NomeCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(Label_NomeClienteErro, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(RadioButton_ContaEspecial)
+                                    .addComponent(RadioButton_ContaNormal))
+                                .addGap(32, 32, 32)
+                                .addComponent(Label_RadioButtonErro, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap(115, Short.MAX_VALUE))))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(241, 241, 241)
+                .addComponent(Label_Titulo)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(Label_Titulo, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(13, 13, 13)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(Label_NumConta)
-                    .addComponent(Input_NumConta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Label_NumContaErro, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(31, 31, 31)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(Label_NomeCliente, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(Input_NomeCliente, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Label_NomeClienteErro, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(31, 31, 31)
-                .addComponent(Button_Salvar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 67, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(13, 13, 13)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(Input_NumConta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(Label_NumConta))
+                            .addComponent(Label_NumContaErro, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+                        .addComponent(Label_NomeClienteErro, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(Label_NomeCliente)
+                            .addComponent(Input_NomeCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(Button_RetornarMenuPrincipal)
-                        .addGap(18, 18, 18))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(Label_CadastroSucesso, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(32, 32, 32))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(RadioButton_ContaNormal)
+                                .addGap(4, 4, 4)
+                                .addComponent(RadioButton_ContaEspecial))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(Button_Salvar)
+                                .addGap(8, 8, 8))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(31, 31, 31)
+                        .addComponent(Label_RadioButtonErro, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 68, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(Label_CadastroSucesso, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Button_RetornarMenuPrincipal, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addContainerGap())
         );
 
         pack();
@@ -151,6 +187,8 @@ public class Tela_Cadastro extends javax.swing.JFrame {
         this.Label_NomeClienteErro.setVisible(false);
         this.Label_CadastroSucesso.setText("");
         this.Label_CadastroSucesso.setVisible(false);
+        this.Label_RadioButtonErro.setText("");
+        this.Label_RadioButtonErro.setVisible(false);
         
         int numConta;
         
@@ -163,21 +201,38 @@ public class Tela_Cadastro extends javax.swing.JFrame {
                 this.Label_NomeClienteErro.setText("Insira o nome do cliente!");
                 this.Label_NomeClienteErro.setVisible(true);
             }
-            if ((!this.Input_NumConta.getText().isEmpty()) && (!this.Input_NomeCliente.getText().isEmpty())){
+            if ((!this.RadioButton_ContaNormal.isSelected()) && (!this.RadioButton_ContaEspecial.isSelected())){
+                this.Label_RadioButtonErro.setText("Selecione um tipo de conta!");
+                this.Label_RadioButtonErro.setVisible(true);
+            }
+            if ((!this.Input_NumConta.getText().isEmpty()) && (!this.Input_NomeCliente.getText().isEmpty()) 
+                            && ((this.RadioButton_ContaNormal.isSelected()) || (this.RadioButton_ContaEspecial.isSelected()))){
                 numConta = Integer.parseInt(this.Input_NumConta.getText());
                 String nomeCliente = this.Input_NomeCliente.getText();
 
-                boolean cadastro;            
-                cadastro = cadContaObj.Cadastrar(new Conta(numConta, nomeCliente));
+                boolean cadastro;
+                if (this.RadioButton_ContaNormal.isSelected()){
+                    cadastro = cadContaObj.Cadastrar(new Conta(numConta, nomeCliente));
+                }else if (this.RadioButton_ContaEspecial.isSelected()){
+                    cadastro = cadContaObj.CadastrarContaEspecial(new ContaEspecial(numConta, nomeCliente, 0));
+                }else{
+                    throw new Error("Erro ao cadastrar baseado no RadioButton");
+                }
+                
                 if (cadastro == false){
                     this.Label_NumContaErro.setText("Esta conta já existe!");
                     this.Label_NumContaErro.setVisible(true);
                     this.Input_NumConta.setText("");
                 }else if (cadastro == true){
-                    this.Label_CadastroSucesso.setText("Conta registrada com sucesso!");
+                    if (this.RadioButton_ContaNormal.isSelected()){
+                        this.Label_CadastroSucesso.setText("Conta normal registrada com sucesso!");
+                    }else if (this.RadioButton_ContaEspecial.isSelected()){
+                        this.Label_CadastroSucesso.setText("Conta especial registrada com sucesso!");
+                    }
                     this.Label_CadastroSucesso.setVisible(true);
                     this.Input_NomeCliente.setText("");
                     this.Input_NumConta.setText("");
+                    this.RadioButtonGroup_TipoConta.clearSelection();
                 }else{
                     this.Label_CadastroSucesso.setText("Ocorreu um erro na execução do programa.");
                     this.Label_CadastroSucesso.setVisible(true);
@@ -211,7 +266,11 @@ public class Tela_Cadastro extends javax.swing.JFrame {
     private javax.swing.JLabel Label_NomeClienteErro;
     private javax.swing.JLabel Label_NumConta;
     private javax.swing.JLabel Label_NumContaErro;
+    private javax.swing.JLabel Label_RadioButtonErro;
     private javax.swing.JLabel Label_Titulo;
+    private javax.swing.ButtonGroup RadioButtonGroup_TipoConta;
+    private javax.swing.JRadioButton RadioButton_ContaEspecial;
+    private javax.swing.JRadioButton RadioButton_ContaNormal;
     // End of variables declaration//GEN-END:variables
     private CadConta cadContaObj;
     private Conta contaObj;

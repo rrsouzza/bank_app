@@ -58,6 +58,21 @@
             </MenuItem>
           </SubComponents>
         </Menu>
+        <Menu class="javax.swing.JMenu" name="Menu_Emprestimo">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Empr&#xe9;stimos"/>
+          </Properties>
+          <SubComponents>
+            <MenuItem class="javax.swing.JMenuItem" name="Item_RealizarEmprestimo">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Realizar Empr&#xe9;stimo"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Item_RealizarEmprestimoActionPerformed"/>
+              </Events>
+            </MenuItem>
+          </SubComponents>
+        </Menu>
         <Menu class="javax.swing.JMenu" name="Menu_Salvar">
           <Properties>
             <Property name="text" type="java.lang.String" value="Salvar Registros"/>

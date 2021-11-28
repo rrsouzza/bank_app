@@ -132,10 +132,11 @@ public class Tela_Saque extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(Label_NumConta)
-                            .addComponent(Input_NumConta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(Label_NumContaErro, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(Label_NumContaErro, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(Label_NumConta)
+                                .addComponent(Input_NumConta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(Input_ValorSaque)
@@ -187,6 +188,10 @@ public class Tela_Saque extends javax.swing.JFrame {
             }
             if (this.Input_ValorSaque.getText().isEmpty()){
                 this.Label_ValorSaqueErro.setText("Insira o valor do saque!");
+                this.Label_ValorSaqueErro.setVisible(true);
+            }
+            if (Double.parseDouble(this.Input_ValorSaque.getText()) < 0){
+                this.Label_ValorSaqueErro.setText("Apenas valores positivos são aceitos!");
                 this.Label_ValorSaqueErro.setVisible(true);
             }
             if ((!this.Input_NumConta.getText().isEmpty()) && (!this.Input_ValorSaque.getText().isEmpty())){

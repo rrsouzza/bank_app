@@ -5,6 +5,7 @@
 package Frames;
 import Objetos.CadConta;
 import Objetos.Conta;
+import Objetos.ContaEspecial;
 import java.util.ArrayList;
 /**
  *
@@ -174,6 +175,12 @@ public class Tela_Deposito extends javax.swing.JFrame {
                 this.Label_ValorDepositoErro.setText("Insira o valor do depósito!");
                 this.Label_ValorDepositoErro.setVisible(true);
             }
+            if (!this.Input_ValorDeposito.getText().isEmpty()){
+                if (Double.parseDouble(this.Input_ValorDeposito.getText()) < 0){
+                    this.Label_ValorDepositoErro.setText("Apenas valores positivos são aceitos!");
+                    this.Label_ValorDepositoErro.setVisible(true);
+                }
+            }
             if ((!this.Input_NumConta.getText().isEmpty()) && (!this.Input_ValorDeposito.getText().isEmpty())){
                 numConta = Integer.parseInt(this.Input_NumConta.getText());
                 valorDeposito = Double.parseDouble(this.Input_ValorDeposito.getText());
@@ -184,6 +191,11 @@ public class Tela_Deposito extends javax.swing.JFrame {
                 for (i=0; i<listaLocal.size(); i++){
                     if (listaLocal.get(i).getNumeroConta() == numConta){
                         listaLocal.get(i).Deposito(valorDeposito);
+                        if (listaLocal.get(i).getClass() == ContaEspecial.class){
+                            ContaEspecial contaLocal = (ContaEspecial)listaLocal.get(i);
+                            contaLocal.AtualizaBeneficios();
+                            listaLocal.set(i, contaLocal);
+                        }
                         cadContaObj.setArrayList(listaLocal);
                         
                         this.Label_ConfirmacaoDeposito.setText("Depósito realizado com sucesso.");

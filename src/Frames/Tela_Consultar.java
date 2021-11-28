@@ -6,6 +6,7 @@ package Frames;
 
 import Objetos.CadConta;
 import Objetos.Conta;
+import Objetos.ContaEspecial;
 import java.util.ArrayList;
 
 /**
@@ -25,6 +26,9 @@ public class Tela_Consultar extends javax.swing.JFrame {
         this.Label_ExibirNomeCliente.setVisible(false);
         this.Label_ExibirNumConta.setVisible(false);
         this.Label_ExibirSaldoConta.setVisible(false);
+        this.Label_ExibirTipoConta.setVisible(false);
+        this.Label_ExibirLimiteConta.setVisible(false);
+        this.Label_ExibirTaxaConta.setVisible(false);
     }
 
     /**
@@ -43,8 +47,11 @@ public class Tela_Consultar extends javax.swing.JFrame {
         Label_ExibirNomeCliente = new javax.swing.JLabel();
         Label_ExibirNumConta = new javax.swing.JLabel();
         Label_ExibirSaldoConta = new javax.swing.JLabel();
+        Label_ExibirTipoConta = new javax.swing.JLabel();
+        Label_ExibirLimiteConta = new javax.swing.JLabel();
         Button_Pesquisar = new javax.swing.JButton();
         Button_RetornarMenuPrincipal = new javax.swing.JButton();
+        Label_ExibirTaxaConta = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -90,21 +97,31 @@ public class Tela_Consultar extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(38, 38, 38)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(Label_ExibirNomeCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(Label_NumConta)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(Input_NumConta, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(Label_ExibirNumConta, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(Button_Pesquisar)
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(Label_ExibirSaldoConta, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 143, Short.MAX_VALUE)
-                                        .addComponent(Button_RetornarMenuPrincipal)))))
+                                        .addComponent(Button_RetornarMenuPrincipal))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(Label_ExibirNomeCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(Label_ExibirNumConta, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(Label_NumConta)
+                                                .addGap(18, 18, 18)
+                                                .addComponent(Input_NumConta, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addComponent(Button_Pesquisar))
+                                        .addGap(46, 245, Short.MAX_VALUE)))))
                         .addGap(18, 18, 18))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(Label_Erro, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(Label_Erro, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(6, 6, 6)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(Label_ExibirTipoConta, javax.swing.GroupLayout.DEFAULT_SIZE, 255, Short.MAX_VALUE)
+                                    .addComponent(Label_ExibirLimiteConta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(Label_ExibirTaxaConta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -121,14 +138,21 @@ public class Tela_Consultar extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(Label_Erro, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addComponent(Label_ExibirNumConta, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(Label_ExibirNomeCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(Label_ExibirSaldoConta, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(Button_RetornarMenuPrincipal, javax.swing.GroupLayout.Alignment.TRAILING))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(Label_ExibirTipoConta, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(Label_ExibirLimiteConta, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(Label_ExibirTaxaConta, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(Button_RetornarMenuPrincipal)))
                         .addGap(22, 22, 22))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(Button_Pesquisar)
@@ -147,6 +171,12 @@ public class Tela_Consultar extends javax.swing.JFrame {
         this.Label_ExibirNomeCliente.setVisible(false);
         this.Label_ExibirSaldoConta.setText("");
         this.Label_ExibirSaldoConta.setVisible(false);
+        this.Label_ExibirTipoConta.setText("");
+        this.Label_ExibirTipoConta.setVisible(false);
+        this.Label_ExibirLimiteConta.setText("");
+        this.Label_ExibirLimiteConta.setVisible(false);
+        this.Label_ExibirTaxaConta.setText("");
+        this.Label_ExibirTaxaConta.setVisible(false);
         
         int numConta;
         
@@ -170,12 +200,25 @@ public class Tela_Consultar extends javax.swing.JFrame {
                         String saldoConta = Double.toString(listaLocal.get(i).getSaldo());
 
                         this.Label_ExibirNumConta.setText("Número da Conta: " +numeroConta);
-                        this.Label_ExibirNomeCliente.setText("Cliente: " +nomeCliente);
-                        this.Label_ExibirSaldoConta.setText("Saldo da conta: " +saldoConta);
                         this.Label_ExibirNumConta.setVisible(true);
+                        this.Label_ExibirNomeCliente.setText("Cliente: " +nomeCliente);
                         this.Label_ExibirNomeCliente.setVisible(true);
+                        this.Label_ExibirSaldoConta.setText("Saldo da conta: " +saldoConta);
                         this.Label_ExibirSaldoConta.setVisible(true);
                         encontrou = true;
+                        
+                        if (listaLocal.get(i).getClass() == ContaEspecial.class){
+                            ContaEspecial contaLocal = (ContaEspecial)listaLocal.get(i);
+                            this.Label_ExibirTipoConta.setText("Essa é uma conta especial.");
+                            this.Label_ExibirTipoConta.setVisible(true);
+                            this.Label_ExibirLimiteConta.setText("O limite de empréstimo atual é: R$" +contaLocal.getLimite());
+                            this.Label_ExibirLimiteConta.setVisible(true);
+                            this.Label_ExibirTaxaConta.setText("A taxa atual de empréstimo é: " +contaLocal.getTaxa()+ "%");
+                            this.Label_ExibirTaxaConta.setVisible(true);
+                        }else{
+                            this.Label_ExibirTipoConta.setText("Essa é uma conta normal.");
+                            this.Label_ExibirTipoConta.setVisible(true);
+                        }
                         break;
                     }
                 }
@@ -216,9 +259,12 @@ public class Tela_Consultar extends javax.swing.JFrame {
     private javax.swing.JButton Button_RetornarMenuPrincipal;
     private javax.swing.JTextField Input_NumConta;
     private javax.swing.JLabel Label_Erro;
+    private javax.swing.JLabel Label_ExibirLimiteConta;
     private javax.swing.JLabel Label_ExibirNomeCliente;
     private javax.swing.JLabel Label_ExibirNumConta;
     private javax.swing.JLabel Label_ExibirSaldoConta;
+    private javax.swing.JLabel Label_ExibirTaxaConta;
+    private javax.swing.JLabel Label_ExibirTipoConta;
     private javax.swing.JLabel Label_NumConta;
     private javax.swing.JLabel Label_Titulo;
     // End of variables declaration//GEN-END:variables

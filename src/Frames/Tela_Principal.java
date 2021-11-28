@@ -83,6 +83,8 @@ public class Tela_Principal extends javax.swing.JFrame {
         Item_Saque = new javax.swing.JMenuItem();
         Item_Transferencia = new javax.swing.JMenuItem();
         Item_Consultar = new javax.swing.JMenuItem();
+        Menu_Emprestimo = new javax.swing.JMenu();
+        Item_RealizarEmprestimo = new javax.swing.JMenuItem();
         Menu_Salvar = new javax.swing.JMenu();
         Item_Salvar = new javax.swing.JMenuItem();
         Menu_Sair = new javax.swing.JMenu();
@@ -137,6 +139,18 @@ public class Tela_Principal extends javax.swing.JFrame {
         Menu_Operacoes.add(Item_Consultar);
 
         MenuGeral.add(Menu_Operacoes);
+
+        Menu_Emprestimo.setText("Empréstimos");
+
+        Item_RealizarEmprestimo.setText("Realizar Empréstimo");
+        Item_RealizarEmprestimo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Item_RealizarEmprestimoActionPerformed(evt);
+            }
+        });
+        Menu_Emprestimo.add(Item_RealizarEmprestimo);
+
+        MenuGeral.add(Menu_Emprestimo);
 
         Menu_Salvar.setText("Salvar Registros");
 
@@ -214,6 +228,10 @@ public class Tela_Principal extends javax.swing.JFrame {
             Logger.getLogger(Tela_Principal.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_Item_SalvarActionPerformed
+
+    private void Item_RealizarEmprestimoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Item_RealizarEmprestimoActionPerformed
+        new Tela_RealizarEmprestimo(this.cadContaObj).setVisible(true);
+    }//GEN-LAST:event_Item_RealizarEmprestimoActionPerformed
     
     /**
      * @param args the command line arguments
@@ -255,6 +273,7 @@ public class Tela_Principal extends javax.swing.JFrame {
     private javax.swing.JMenuItem Item_CadastrarConta;
     private javax.swing.JMenuItem Item_Consultar;
     private javax.swing.JMenuItem Item_Deposito;
+    private javax.swing.JMenuItem Item_RealizarEmprestimo;
     private javax.swing.JMenuItem Item_SairPrograma;
     private javax.swing.JMenuItem Item_Salvar;
     private javax.swing.JMenuItem Item_Saque;
@@ -262,6 +281,7 @@ public class Tela_Principal extends javax.swing.JFrame {
     private javax.swing.JLabel Label_RegistrosCarregados;
     private javax.swing.JMenuBar MenuGeral;
     private javax.swing.JMenu Menu_Contas;
+    private javax.swing.JMenu Menu_Emprestimo;
     private javax.swing.JMenu Menu_Operacoes;
     private javax.swing.JMenu Menu_Sair;
     private javax.swing.JMenu Menu_Salvar;
