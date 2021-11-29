@@ -190,9 +190,11 @@ public class Tela_Saque extends javax.swing.JFrame {
                 this.Label_ValorSaqueErro.setText("Insira o valor do saque!");
                 this.Label_ValorSaqueErro.setVisible(true);
             }
-            if (Double.parseDouble(this.Input_ValorSaque.getText()) < 0){
-                this.Label_ValorSaqueErro.setText("Apenas valores positivos são aceitos!");
-                this.Label_ValorSaqueErro.setVisible(true);
+            if (!this.Input_ValorSaque.getText().isEmpty()){
+                if (Double.parseDouble(this.Input_ValorSaque.getText()) < 0){
+                    this.Label_ValorSaqueErro.setText("Apenas valores positivos são aceitos!");
+                    this.Label_ValorSaqueErro.setVisible(true);
+                }
             }
             if ((!this.Input_NumConta.getText().isEmpty()) && (!this.Input_ValorSaque.getText().isEmpty())){
                 numConta = Integer.parseInt(this.Input_NumConta.getText());

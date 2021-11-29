@@ -148,10 +148,11 @@ public class Tela_Transferencia extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(Label_Titulo, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(11, 11, 11)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Label_NumContaOrigem)
-                    .addComponent(Input_NumContaOrigem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Label_NumContaOrigemErro, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(Label_NumContaOrigemErro, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(Label_NumContaOrigem)
+                        .addComponent(Input_NumContaOrigem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(23, 23, 23)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -212,9 +213,11 @@ public class Tela_Transferencia extends javax.swing.JFrame {
                 this.Label_ValorTransferenciaErro.setText("Insira o valor da transferência!");
                 this.Label_ValorTransferenciaErro.setVisible(true);
             }
-            if (Double.parseDouble(this.Input_ValorTransferencia.getText()) < 0){
-                this.Label_ValorTransferenciaErro.setText("Apenas valores positivos são aceitos!");
-                this.Label_ValorTransferenciaErro.setVisible(true);
+            if (!this.Input_ValorTransferencia.getText().isEmpty()){
+                if (Double.parseDouble(this.Input_ValorTransferencia.getText()) < 0){
+                    this.Label_ValorTransferenciaErro.setText("Apenas valores positivos são aceitos!");
+                    this.Label_ValorTransferenciaErro.setVisible(true);
+                }
             }
             if ((!this.Input_NumContaOrigem.getText().isEmpty()) && (!this.Input_NumContaDestino.getText().isEmpty()) && (!this.Input_ValorTransferencia.getText().isEmpty())){
                 numContaOrigem = Integer.parseInt(this.Input_NumContaOrigem.getText());
@@ -252,6 +255,13 @@ public class Tela_Transferencia extends javax.swing.JFrame {
                             this.Label_NumContaDestinoErro.setVisible(true);
                         }
                     }
+                }
+                
+                if (listaLocal.size() == 0){
+                    this.Label_NumContaOrigemErro.setText("Não há nenhum registro no sistema!");
+                    this.Label_NumContaOrigemErro.setVisible(true);
+                    this.Label_NumContaDestinoErro.setText("Não há nenhum registro no sistema!");
+                    this.Label_NumContaDestinoErro.setVisible(true);
                 }
                 
                 if ((contaOrigemCerta == true) && (contaDestinoCerta == true)){

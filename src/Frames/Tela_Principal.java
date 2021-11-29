@@ -27,7 +27,7 @@ public class Tela_Principal extends javax.swing.JFrame {
         try{
             diretorio = System.getProperty("user.home");
             System.out.print(diretorio.replace("\\", "/"));
-            diretorio +=  "\\Desktop\\Avaliacao_Banco.txt";
+            diretorio +=  "\\Desktop\\Banco.txt";
         }catch (Exception e){
             throw new Error(e);
         }
