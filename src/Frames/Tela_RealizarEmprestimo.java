@@ -205,13 +205,21 @@ public class Tela_RealizarEmprestimo extends javax.swing.JFrame {
                             double taxaAtual = contaEspecialLocal.getTaxa();
                             
                             switch(contaEspecialLocal.RealizarEmprestimo(valorEmprestimo)){
-                                case 1:
-                                    this.Label_ConfirmacaoEmprestimo.setText("Empréstimo de R$" +valorEmprestimo+ " realizado a uma taxa de " +taxaAtual+ "%. Retire seu dinheiro abaixo.");
+                                case 0:
+                                    this.Label_ConfirmacaoEmprestimo.setText("Você tem uma dívida pendente! Pague-a primeiro.");
                                     this.Label_ConfirmacaoEmprestimo.setVisible(true);
-                                    this.Label_SaldoRestante.setText("Saldo atual da conta: R$" +contaEspecialLocal.getSaldo());
+                                    this.Label_SaldoRestante.setText("Você ainda deve R$" +contaEspecialLocal.getDivida());
                                     this.Label_SaldoRestante.setForeground(Color.red);
                                     this.Label_SaldoRestante.setVisible(true);
-                                    this.Label_Erro.setText("Para quitar sua dívida, basta realizar um depósito que cubra o valor do empréstimo.");
+                                    this.Input_NumConta.setText("");
+                                    this.Input_ValorEmprestimo.setText("");
+                                    break;
+                                case 1:
+                                    this.Label_ConfirmacaoEmprestimo.setText("Empréstimo de R$" +valorEmprestimo+ " realizado a uma taxa de " +taxaAtual+ "%. Você agora deve R$" +contaEspecialLocal.getDivida());
+                                    this.Label_ConfirmacaoEmprestimo.setVisible(true);
+                                    this.Label_SaldoRestante.setText("Saldo atual da conta: R$" +contaEspecialLocal.getSaldo());
+                                    this.Label_SaldoRestante.setVisible(true);
+                                    this.Label_Erro.setText("*Para quitar a dívida, basta realizar um depósito: o valor é descontado do saldo.");
                                     this.Label_Erro.setVisible(true);
                                     this.Input_NumConta.setText("");
                                     this.Input_ValorEmprestimo.setText("");

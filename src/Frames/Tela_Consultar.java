@@ -215,6 +215,11 @@ public class Tela_Consultar extends javax.swing.JFrame {
                             this.Label_ExibirLimiteConta.setVisible(true);
                             this.Label_ExibirTaxaConta.setText("A taxa atual de empréstimo é: " +contaLocal.getTaxa()+ "%");
                             this.Label_ExibirTaxaConta.setVisible(true);
+                            
+                            if (contaLocal.getDivida() > 0){
+                                this.Label_Erro.setText("Você está devendo R$" +contaLocal.getDivida());
+                                this.Label_Erro.setVisible(true);
+                            }
                         }else{
                             this.Label_ExibirTipoConta.setText("Essa é uma conta normal.");
                             this.Label_ExibirTipoConta.setVisible(true);

@@ -92,8 +92,8 @@ public class CadConta {
             linha = this.entrada.nextLine();
             try{
                 vetorLinha = linha.split(";");  //Divide as informações usando o ; como parâmetro
-                if (vetorLinha.length > 3){
-                    registros.add(new ContaEspecial(Integer.parseInt(vetorLinha[0]), vetorLinha[1], Double.parseDouble(vetorLinha[2]), Double.parseDouble(vetorLinha[3]), Double.parseDouble(vetorLinha[4])));
+                if (vetorLinha.length == 6){
+                    registros.add(new ContaEspecial(Integer.parseInt(vetorLinha[0]), vetorLinha[1], Double.parseDouble(vetorLinha[2]), Double.parseDouble(vetorLinha[3]), Double.parseDouble(vetorLinha[4]), Double.parseDouble(vetorLinha[5])));
                 }else{
                     registros.add(new Conta(Integer.parseInt(vetorLinha[0]), vetorLinha[1], Double.parseDouble(vetorLinha[2])));
                 }
