@@ -228,10 +228,10 @@ public class Tela_RealizarEmprestimo extends javax.swing.JFrame {
                                     this.Input_ValorEmprestimo.setText("");
                                     break;
                                 case 3:
-                                    this.Label_ConfirmacaoEmprestimo.setText("Você já realizou um empréstimo! Pague a dívida primeiro.");
+                                    this.Label_ConfirmacaoEmprestimo.setText("Você não possui limite suficiente!");
                                     this.Label_ConfirmacaoEmprestimo.setForeground(Color.red);
                                     this.Label_ConfirmacaoEmprestimo.setVisible(true);
-                                    this.Label_SaldoRestante.setText("O seu saldo atual é: R$" +contaEspecialLocal.getSaldo());
+                                    this.Label_SaldoRestante.setText("O seu limite atual é: R$" +contaEspecialLocal.getLimite());
                                     this.Label_SaldoRestante.setForeground(Color.red);
                                     this.Label_SaldoRestante.setVisible(true);
                                     this.Input_NumConta.setText("");

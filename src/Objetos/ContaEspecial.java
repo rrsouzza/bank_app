@@ -43,7 +43,7 @@ public class ContaEspecial extends Conta{
                     return 2;   //Se valor do empréstimo for maior que o limite da conta
                 }
             }else{
-                return 3;   //Se limite e taxa forem igual a 0 (já foi realizado empréstimo)
+                return 3;   //Se limite e taxa forem igual a 0 (insuficientes)
             }
         }catch(Error e){
             throw new Error("Erro ao RealizarEmprestimo()");

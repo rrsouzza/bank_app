@@ -5,6 +5,7 @@
 package Frames;
 import Objetos.CadConta;
 import Objetos.Conta;
+import Objetos.ContaEspecial;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -213,6 +214,11 @@ public class Tela_Saque extends javax.swing.JFrame {
 
                 if (verificacao == true){
                     if (listaLocal.get(posNumConta).Saque(valorSaque) == 1){
+                        if (listaLocal.get(posNumConta).getClass() == ContaEspecial.class){
+                            ContaEspecial contaLocal = (ContaEspecial)listaLocal.get(posNumConta);
+                            contaLocal.AtualizaBeneficios();
+                            listaLocal.set(posNumConta, contaLocal);
+                        }
                         this.Label_SaqueRealizado.setText("Saque realizado com sucesso! Retire seu dinheiro abaixo.");
                         this.Label_SaqueRealizado.setVisible(true);
                         this.Label_SaldoRestante.setText("Seu saldo agora é de R$" +listaLocal.get(posNumConta).getSaldo());

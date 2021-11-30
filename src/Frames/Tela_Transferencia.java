@@ -6,6 +6,7 @@ package Frames;
 
 import Objetos.CadConta;
 import Objetos.Conta;
+import Objetos.ContaEspecial;
 import java.awt.Color;
 import java.util.ArrayList;
 
@@ -270,6 +271,16 @@ public class Tela_Transferencia extends javax.swing.JFrame {
                     this.Label_ConfirmacaoTransferencia.setVisible(false);
                     ArrayList<Conta> ListaTeste = cadContaObj.getArrayList();
                     if (listaLocal.get(posContaOrigem).Transferencia(valorTransferencia, listaLocal.get(posContaDestino)) == 1){
+                        if (listaLocal.get(posContaOrigem).getClass() == ContaEspecial.class){
+                            ContaEspecial contaLocal = (ContaEspecial)listaLocal.get(posContaOrigem);
+                            contaLocal.AtualizaBeneficios();
+                            listaLocal.set(posContaOrigem, contaLocal);
+                        }
+                        if (listaLocal.get(posContaDestino).getClass() == ContaEspecial.class){
+                            ContaEspecial contaLocal = (ContaEspecial)listaLocal.get(posContaDestino);
+                            contaLocal.AtualizaBeneficios();
+                            listaLocal.set(posContaDestino, contaLocal);
+                        }
                         this.Label_ConfirmacaoTransferencia.setText("Transferência realizada com sucesso.");
                         this.Label_ConfirmacaoTransferencia.setForeground(Color.black);
                         this.Label_ConfirmacaoTransferencia.setVisible(true);
