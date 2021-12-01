@@ -53,7 +53,7 @@
                                           </Group>
                                       </Group>
                                   </Group>
-                                  <Component id="Button_Salvar" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="Button_RealizarEmprestimo" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -103,7 +103,7 @@
                   </Group>
               </Group>
               <EmptySpace pref="32" max="32767" attributes="0"/>
-              <Component id="Button_Salvar" min="-2" max="-2" attributes="0"/>
+              <Component id="Button_RealizarEmprestimo" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="Label_ConfirmacaoEmprestimo" min="-2" pref="26" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
@@ -173,12 +173,12 @@
         </Property>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="Button_Salvar">
+    <Component class="javax.swing.JButton" name="Button_RealizarEmprestimo">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Salvar"/>
+        <Property name="text" type="java.lang.String" value="Realizar Empr&#xe9;stimo"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Button_SalvarActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Button_RealizarEmprestimoActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="Button_RetornarMenuPrincipal">

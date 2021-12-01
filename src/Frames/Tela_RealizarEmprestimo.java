@@ -46,7 +46,7 @@ public class Tela_RealizarEmprestimo extends javax.swing.JFrame {
         Label_ValorEmprestimo = new javax.swing.JLabel();
         Input_ValorEmprestimo = new javax.swing.JTextField();
         Label_ValorEmprestimoErro = new javax.swing.JLabel();
-        Button_Salvar = new javax.swing.JButton();
+        Button_RealizarEmprestimo = new javax.swing.JButton();
         Button_RetornarMenuPrincipal = new javax.swing.JButton();
         Label_ConfirmacaoEmprestimo = new javax.swing.JLabel();
         Label_SaldoRestante = new javax.swing.JLabel();
@@ -74,10 +74,10 @@ public class Tela_RealizarEmprestimo extends javax.swing.JFrame {
 
         Label_ValorEmprestimoErro.setForeground(java.awt.Color.red);
 
-        Button_Salvar.setText("Salvar");
-        Button_Salvar.addActionListener(new java.awt.event.ActionListener() {
+        Button_RealizarEmprestimo.setText("Realizar Empréstimo");
+        Button_RealizarEmprestimo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Button_SalvarActionPerformed(evt);
+                Button_RealizarEmprestimoActionPerformed(evt);
             }
         });
 
@@ -116,7 +116,7 @@ public class Tela_RealizarEmprestimo extends javax.swing.JFrame {
                                                 .addComponent(Input_ValorEmprestimo, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addGap(18, 18, 18)
                                                 .addComponent(Label_ValorEmprestimoErro, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                    .addComponent(Button_Salvar, javax.swing.GroupLayout.Alignment.LEADING))))
+                                    .addComponent(Button_RealizarEmprestimo, javax.swing.GroupLayout.Alignment.LEADING))))
                         .addGap(0, 12, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
@@ -150,7 +150,7 @@ public class Tela_RealizarEmprestimo extends javax.swing.JFrame {
                             .addComponent(Input_ValorEmprestimo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(Label_ValorEmprestimoErro, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
-                .addComponent(Button_Salvar)
+                .addComponent(Button_RealizarEmprestimo)
                 .addGap(18, 18, 18)
                 .addComponent(Label_ConfirmacaoEmprestimo, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -169,13 +169,17 @@ public class Tela_RealizarEmprestimo extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_Button_RetornarMenuPrincipalActionPerformed
 
-    private void Button_SalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_SalvarActionPerformed
+    private void Button_RealizarEmprestimoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_RealizarEmprestimoActionPerformed
         this.Label_ConfirmacaoEmprestimo.setText("");
         this.Label_ConfirmacaoEmprestimo.setVisible(false);
         this.Label_SaldoRestante.setText("");
         this.Label_SaldoRestante.setVisible(false);
         this.Label_Erro.setText("");
         this.Label_Erro.setVisible(false);
+        this.Label_NumContaErro.setText("");
+        this.Label_NumContaErro.setVisible(false);
+        this.Label_ValorEmprestimoErro.setText("");
+        this.Label_ValorEmprestimoErro.setVisible(false);
         
         int numConta;
         double valorEmprestimo;
@@ -274,7 +278,7 @@ public class Tela_RealizarEmprestimo extends javax.swing.JFrame {
         }catch(Error e){
             throw new Error("Erro inesperado ao try{button_SalvarActionPerformed}");
         }
-    }//GEN-LAST:event_Button_SalvarActionPerformed
+    }//GEN-LAST:event_Button_RealizarEmprestimoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -282,8 +286,8 @@ public class Tela_RealizarEmprestimo extends javax.swing.JFrame {
 
     private CadConta cadContaObj;
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Button_RealizarEmprestimo;
     private javax.swing.JButton Button_RetornarMenuPrincipal;
-    private javax.swing.JButton Button_Salvar;
     private javax.swing.JTextField Input_NumConta;
     private javax.swing.JTextField Input_ValorEmprestimo;
     private javax.swing.JLabel Label_ConfirmacaoEmprestimo;
